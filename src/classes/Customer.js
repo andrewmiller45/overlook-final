@@ -1,3 +1,5 @@
+import Booking from "./Booking"
+
 class Customer {
     constructor (customerData){
         this.id = customerData.id
@@ -5,8 +7,12 @@ class Customer {
         this.bookings = []
     }
 
-    addBooking(booking){
-        this.bookings.push(booking)
+    findSpendHistory() {
+
+    }
+
+    findBookings() {
+
     }
 }
 

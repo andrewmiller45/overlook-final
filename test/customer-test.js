@@ -3,19 +3,13 @@ const expect = chai.expect;
 import Customer from '../src/classes/Customer'
 
 describe('Customer', () => {
+    let bookings
     let customer1
     let customerTestData
     let customerClass
 
     beforeEach( () => {
-    customerTestData = 
-        customer1 = {
-            id: 4,
-            name: "Rhiannon Little",
-            bookings: []
-        }
-    
-        customerClass = new Customer(customerTestData)
+        customer1 = new Customer(customerTestData)
     })
 
     it('should be a function', () => {

@@ -1,9 +1,9 @@
 class Booking {
     constructor(bookingData){
         this.id = bookingData.id
-        this.userId = bookingData.userId
+        this.userID = bookingData.userId
         this.date = bookingData.date
-        this.roomNum = bookingData.roomNum
+        this.roomNumber = bookingData.roomNumber
     }
 }
 
