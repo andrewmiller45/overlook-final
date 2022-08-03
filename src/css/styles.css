@@ -1,7 +1,26 @@
+/* color palette
+color: #523c40
+color: #b03c47 
+color: #915f68
+color: #dababc
+color: #f9f3f3
+color: white
+*/
+
 * {
   border: 1px solid blue;
 }
 
-body {
-  background: white
+html, body {
+  background-color: #f9f3f3;
+  height: 100vh;
 }
+
+/* nav {
+  
+} */
+/* 
+.available-room-container {
+
+}
+ */

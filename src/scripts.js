@@ -17,9 +17,9 @@ window.addEventListener('load', loadData)
 
 function loadData() {
     Promise.all([getData('customers'), getData('rooms'), getData('bookings')]).then(data => {
-        listOfCustomers = data[0].customers;
-        listOfRooms = data[1].rooms;
-        listOfBookings = data[2].bookings;
-        console.log(listOfBookings);
+        listOfCustomers = data[0].customers
+        listOfRooms = data[1].rooms
+        listOfBookings = data[2].bookings
+        console.log(listOfBookings)
     })
 }
