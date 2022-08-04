@@ -23,6 +23,22 @@ let roomsData = {
             numBeds: 1,
             number: 3,
             roomType: "single room"
+        },
+        {
+            bedSize: "twin",
+            bidet: false,
+            costPerNight: 172.09,
+            numBeds: 2,
+            number: 12,
+            roomType: "single room"
+        },
+        {
+            bedSize: "queen",
+            bidet: false,
+            costPerNight: 343.95,
+            numBeds: 1,
+            number: 20,
+            roomType: "residential suite"
         }
     ]
 }

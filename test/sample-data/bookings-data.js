@@ -16,7 +16,20 @@ let bookingData = {
             userID: 20, 
             date: '2022/02/16', 
             roomNumber: 7
+        },
+        {
+            id: '5fwrgu4i7k55hl6t8', 
+            userID: 1, 
+            date: '2022/02/05', 
+            roomNumber: 12
+        },
+        {
+            date: "2023/01/11",
+            id: "5fwrgu4i7k55hl6x8",
+            roomNumber: 20,
+            userID: 1
         }
+
     ]
 }
 

@@ -7,12 +7,26 @@ class Customer {
         this.bookings = []
     }
 
-    findSpendHistory() {
-
+    findBookings(allBookingData) {
+        return this.bookings = allBookingData.filter(booking => booking.userID === this.id)
     }
 
-    findBookings() {
+    updateCostPerNight(roomData){
+        this.bookings.forEach(booking => {
+            roomData.forEach(room => {
+                if(room.number === booking.roomNumber) {
+                    booking.amount = room.costPerNight
+                }
+            })
+        })
+    }
 
+    findSpendHistory() {
+       return this.bookings.reduce((acc, booking) => {
+        console.log(booking)
+        acc += booking.amount
+        return acc
+       }, 0)
     }
 }
 
