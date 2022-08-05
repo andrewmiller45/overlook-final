@@ -47,8 +47,8 @@ function displayUsersBookings (  ) {
         `<section class="room-card-to-view">
             <img src="./images/hotelroom.png" class="room-image" alt="room image" >
             <p>Date of Stay: ${booking.date}</p>
-            <p>Room Number ${booking.roomNumber}</p>
-            <p>Cost per Night ${booking.amount}</p>
+            <p>Room ${booking.roomNumber}</p>
+            <p>Cost per Night: $${booking.amount}</p>
         </section>`
     }))
 }

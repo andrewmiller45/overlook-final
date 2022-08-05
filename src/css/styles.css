@@ -8,7 +8,7 @@ color: white
 */
 
 * {
-  border: 1px solid blue;
+  font-family: 'Quicksand', sans-serif;
 }
 
 html, body {
@@ -27,16 +27,33 @@ nav {
 }
 
 .room-image{
-  height: 15rem;
-  width: 15rem;
+  height: 10rem;
+  width: 10rem;
+  border: 2px solid black;
+  border-radius: 2%;
 }
 
-
-.hidden{
-  display: none;
+.room-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 .room-card-to-view{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  font-size: medium;
+  padding: 1%;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 2%;
+  background-color: #f9f3f3;
+}
+
+.hidden{
+  display: none;
 }
