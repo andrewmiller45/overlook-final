@@ -7,17 +7,47 @@
   <title>Del Rio's Regal Motel</title>
 </head>
 <body>
-  <header>Del Rio's Regal Motel</header>
+  <header>
+    Del Rio's Regal Motel
+  </header>
   <main>
     <nav>
       <button id="bookings-button">Your Bookings</button>
+      <label for="calDate">Select a Booking Date</label>
+      <input id="calDate" type="date" required>
+
+      <label for="roomType">Select a Room Type:</label>
+      <select name="roomType" id="roomType">
+        <option value="single room">Single Room</option>
+        <option value="junior suite">Junior Suite</option>
+        <option value="suite">Suite</option>
+        <option value="residential suite">Residential Suite</option>
+      </select>
+
+      <label for="bedType">Select a Bed Type:</label>
+      <select name="bedType" id="bedType">
+        <option value="twin">Twin</option>
+        <option value="full">Full</option>
+        <option value="queen">Queen</option>
+        <option value="king">King</option>
+      </select>
     </nav>
     <section class="login-container">
     
     </section>
-    <section class="available-room-container">
-      <section class="room-card">
-        <img src="src/images/hotelroom.png" class="room-image" alt="room image">
+    <section class="room-container">
+      <!-- <section class="room-card-to-book">
+        <img src="./images/hotelroom.png" class="room-image" alt="room image">
+        <button>Book Room</button>
+        <p>Date of Stay</p>
+        <p>Room Number</p>
+        <p>Cost per Night</p>
+      </section> -->
+      <section class="room-card-to-view">
+        <img src="./images/hotelroom.png" class="room-image" alt="room image">
+        <p>Date of Stay</p>
+        <p>Room Number</p>
+        <p>Cost per Night</p>
       </section>
     </section>
     <section class="manager-view hidden">

@@ -14,13 +14,11 @@ color: white
 html, body {
   background-color: #b03c47;
   height: 100vh;
+  display: flex;
 }
 
 nav {
-  display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 15vw;
 }
 
 .available-room-container {
@@ -29,6 +27,16 @@ nav {
 }
 
 .room-image{
-  height: 25px;
-  width: 25px;
+  height: 15rem;
+  width: 15rem;
+}
+
+
+.hidden{
+  display: none;
+}
+
+.room-card-to-view{
+  display: flex;
+  flex-direction: column;
 }

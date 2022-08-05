@@ -1,5 +1,3 @@
-import Booking from "./Booking"
-
 class Customer {
     constructor (customerData){
         this.id = customerData.id
