@@ -23,7 +23,6 @@ class Customer {
 
     findSpendHistory() {
        return this.bookings.reduce((acc, booking) => {
-        console.log(booking)
         acc += booking.amount
         return acc
        }, 0)
