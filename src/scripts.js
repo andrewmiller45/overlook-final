@@ -2,10 +2,10 @@
 // Do not delete or rename this file ********
 
 // An example of how you tell webpack to use a CSS (SCSS) file
-import { getData } from './apicalls';
-import './css/styles.css';
-import Customer from './classes/Customer.js';
-import Rooms from './classes/Rooms.js'; 
+import { getData } from './apicalls'
+import './css/styles.css'
+import Customer from './classes/Customer.js'
+import Rooms from './classes/Rooms.js'
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/hotelroom.png'
@@ -18,13 +18,19 @@ let customerClass
 let roomClass
 let managerClass
 
-// e listeners 
-window.addEventListener('load', loadData)
 
 
 //q selectors 
 let roomContainer = document.querySelector('.room-container')
-let userHeadlineMsg = document.querySelector('.')
+// let userHeadlineMsg = document.querySelector('.')
+let submitButton = document.querySelector('#submitButton')
+let calendarValues = document.getElementById('calDate')
+
+// e listeners 
+window.addEventListener('load', loadData)
+submitButton.addEventListener('click', (e) => {
+    console.log(calendarValues.value)
+})
 
 //functions
 function loadData(  ) {
@@ -42,10 +48,9 @@ function loadData(  ) {
 }
 
 function displayUsersBookings (  ) {
-
     roomContainer.innerHTML = ""
     customerClass.bookings.map((booking => {
-        console.log(booking);
+        
         return roomContainer.innerHTML += 
         `<section class="room-card-to-view">
             <img src="./images/hotelroom.png" class="room-image" alt="room image" >

@@ -31,41 +31,40 @@ describe('Room', () => {
     })
 
     it('should filter available rooms by date', () => {   
-        expect(roomClass.filterByDate(bookings, date)).to.deep.equal(
+        expect(roomClass.filterForAvailability(bookings, date)).to.deep.equal(
             [
-                  {
-                    "bedSize": "queen",
-                    "bidet": true,
-                    "costPerNight": 358.4,
-                    "numBeds": 1,
-                    "number": 1,
-                    "roomType": "residential suite"
-                  },
-                  {
-                    "bedSize": "full",
-                    "bidet": false,
-                    "costPerNight": 477.38,
-                    "numBeds": 2,
-                    "number": 2,
-                    "roomType": "suite"
-                  },
-                  {
-                    "bedSize": "king",
-                    "bidet": false,
-                    "costPerNight": 491.14,
-                    "numBeds": 1,
-                    "number": 3,
-                    "roomType": "single room"
-                  },
-                  {
-                    "bedSize": "queen",
-                    "bidet": false,
-                    "costPerNight": 343.95,
-                    "numBeds": 1,
-                    "number": 20,
-                    "roomType": "residential suite"
-                  }
+                {
+                "bedSize": "queen",
+                "bidet": true,
+                "costPerNight": 358.4,
+                "numBeds": 1,
+                "number": 1,
+                "roomType": "residential suite"
+                },
+                {
+                "bedSize": "full",
+                "bidet": false,
+                "costPerNight": 477.38,
+                "numBeds": 2,
+                "number": 2,
+                "roomType": "suite"
+                },
+                {
+                "bedSize": "king",
+                "bidet": false,
+                "costPerNight": 491.14,
+                "numBeds": 1,
+                "number": 3,
+                "roomType": "single room"
+                },
+                {
+                "bedSize": "queen",
+                "bidet": false,
+                "costPerNight": 343.95,
+                "numBeds": 1,
+                "number": 20,
+                "roomType": "residential suite"
+                }
         ])
-    })
-     
+    })   
 })
