@@ -1,11 +1,6 @@
 let bookingData = {
     bookings: [
         {
-            id: "5fwrgu4i7k55hl6sz",
-            userID: 43,
-            date: '2022/01/24'
-        }, 
-        {
             id: '5fwrgu4i7k55hl6t6', 
             userID: 13, 
             date: '2022/01/10', 
@@ -28,8 +23,19 @@ let bookingData = {
             id: "5fwrgu4i7k55hl6x8",
             roomNumber: 20,
             userID: 1
+        },
+        {
+            date: "2022/01/11",
+            id: "5fwrgu4i7k55hl6ux",
+            roomNumber: 23,
+            userID: 46
+        },
+        {
+            date: "2022/01/10",
+            id: "5fwrgu4i7k55hl6tl",
+            roomNumber: 8,
+            userID: 3
         }
-
     ]
 }
 
