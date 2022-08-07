@@ -8,7 +8,7 @@ class Rooms {
     filterForAvailability (bookingData, date, roomType) {
         let bookedRooms = bookingData.filter(booking => booking.date === date).map(booking => booking.roomNumber)
         let availableRoomsByDate = this.rooms.filter(room => !bookedRooms.includes(room.number))
-        if (!roomType && !bedType) {
+        if (!roomType) {
             return availableRoomsByDate
         } else {
             this.roomType = roomType

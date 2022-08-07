@@ -83,6 +83,7 @@ function displayAvailableRooms(e){
                 <p>Cost per Night: $${availableRoom.costPerNight}</p>
                 <button id="bookItButton">Book this room!</button>
             </section>`
+            
         })
 }
 
