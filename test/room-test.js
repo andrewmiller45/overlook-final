@@ -66,5 +66,18 @@ describe('Room', () => {
                 "roomType": "residential suite"
                 }
         ])
-    })   
+    })
+    
+    it('should filter room by type too' , () => {
+        expect(roomClass.filterForAvailability(bookings, date, "suite")).to.deep.equal([
+            {
+                "bedSize": "full",
+                "bidet": false,
+                "costPerNight": 477.38,
+                "numBeds": 2,
+                "number": 2,
+                "roomType": "suite"
+            }
+        ])
+    })
 })

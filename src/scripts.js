@@ -69,7 +69,8 @@ function displayAvailableRooms(e){
     hide(bookingsViewContainer)
     show(viewAvailableRoomsContainer)
     let reformattedDate = dayjs(calendarValues.value).format("YYYY/MM/DD")
-    let availableRooms = roomClass.filterForAvailability(listOfBookings, reformattedDate)  
+    let availableRooms = roomClass.filterForAvailability(listOfBookings, reformattedDate) 
+        console.log(roomClass) 
         viewAvailableRoomsContainer.innerHTML = ""
         availableRooms.map(availableRoom =>  {
             console.log(availableRoom);

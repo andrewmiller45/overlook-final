@@ -19,8 +19,6 @@ main {
 html, body {
   background-color: #b03c47;
   height: 100vh;
-  display: flex;
-;
 }
 
 nav {
