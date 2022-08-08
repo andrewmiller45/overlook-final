@@ -38,10 +38,11 @@ submitButton.addEventListener('click', displayAvailableRooms)
 viewYourBookingsButton.addEventListener('click', displayUsersBookings)
 roomToBookContainer.addEventListener('click', (e) => {
     if(e.target.classList == 'book-room'){
+        e.target.closest('section').remove()
+        window.alert(`Thank you! Your booking has been completed.`)
         getFormDataForPost(e)
         submitPostData(e)
-        customerClass.findBookings(getData('bookings'))
-        displayUsersBookings() 
+        console.log(customerClass);
     }    
 })
 
@@ -52,7 +53,7 @@ function loadData(  ) {
         listOfCustomers = data[0].customers
         listOfRooms = data[1].rooms
         listOfBookings = data[2].bookings
-        customerClass = new Customer(listOfCustomers[0])
+        customerClass = new Customer(listOfCustomers[2])
         // customerClass = new Customer(listOfCustomers[ Math.floor( Math.random( ) * listOfCustomers.length ) ])
         console.log(listOfBookings);
         roomClass = new Rooms(listOfRooms)
@@ -65,13 +66,13 @@ function loadData(  ) {
     })
 }
 
-function displayUsersBookings (  ) {
+function displayUsersBookings () {
     hide(viewAvailableRoomsContainer)
     show(bookingsViewContainer)
     bookingsViewContainer.innerHTML = ""
     customerClass.bookings.map((booking => {
         return bookingsViewContainer.innerHTML += 
-        `<section class="room-card-to-view">
+        `<section class="individuals-booked-room-card">
             <img src="./images/hotelroom.png" class="room-image" alt="room image" >
             <p>Date of Stay: ${dayjs(booking.date).format("MMMM DD, YYYY")}</p>
             <p>Room ${booking.roomNumber}</p>
@@ -88,25 +89,22 @@ function displayAvailableRooms(e){
     let availableRooms = roomClass.filterForAvailability(listOfBookings, reformattedDate, roomType.value) 
     console.log(availableRooms);
         viewAvailableRoomsContainer.innerHTML = ""
-        availableRooms.map(availableRoom =>  {
-            return viewAvailableRoomsContainer.innerHTML +=         
-            `<section class="room-card-to-book">
-                <img src="./images/hotelroom.png" class="room-image" alt="room image" >
-                <p>Room ${availableRoom.number}</p>
-                <p>Room Type: ${availableRoom.roomType}</p>
-                <p>${availableRoom.bedSize} size bed</p>
-                <p>Cost per Night: $${availableRoom.costPerNight}</p>
-                <button class="book-room" id="${availableRoom.number}">Book this room!</button>
-            </section>`          
+        if (!availableRooms.length) {
+            window.alert(`The Rio Agressively apologizes, but no rooms are available, returning to your booking page now.`)
+            displayUsersBookings()
+        } else {
+            availableRooms.map(availableRoom =>  {
+                return viewAvailableRoomsContainer.innerHTML +=         
+                `<section class="individuals-available-room-card">
+                    <img src="./images/hotelroom.png" class="room-image" alt="room image" >
+                    <p>Room ${availableRoom.number}</p>
+                    <p>Room Type: ${availableRoom.roomType}</p>
+                    <p>${availableRoom.bedSize} size bed</p>
+                    <p>Cost per Night: $${availableRoom.costPerNight}</p>
+                    <button class="book-room" id="${availableRoom.number}">Book this room!</button>
+                </section>`          
         })
-}
-
-function hide(element){
-    element.classList.add('hidden')
-}
-
-function show(element){
-    element.classList.remove('hidden')
+    }
 }
 
 function getCurrentDate() {
@@ -137,3 +135,11 @@ function submitPostData(e) {
             booking = new Booking(response[response.length - 1])
         })
     }
+
+function hide(element){
+    element.classList.add('hidden')
+}
+
+function show(element){
+    element.classList.remove('hidden')
+}

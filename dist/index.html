@@ -6,51 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Del Rio's Regal Motel</title>
 </head>
-<body>
+<body>  
   <header>
     Del Rio's Regal Motel
   </header>
-  <main>
-    <nav>
-      <form class="calendar">
-        <button id="bookingsButton">Your Bookings</button>
-        <label for="calDate">Select a Booking Date</label>
-        <input id="calDate" type="date" min="" value=""  name="date-entry" required>
-        <label for="roomType">Select a Room Type</label>
-        <select type="dropdown" name="roomType" id="roomType">
-          <option disabled hidden selected value="">Choose a Room Type</option>
-          <option value="single room">Single Room</option>
-          <option value="junior suite">Junior Suite</option>
-          <option value="suite">Suite</option>
-          <option value="residential suite">Residential Suite</option>
-        </select>
-        <input type="submit" id="submitButton">Search for Available Rooms</input>
-      </form>
-    </nav>
-    <section class="content">
-      <section class="login-container">  
-      </section>
-      <section class="room-container">
-        <section class="room-card-to-book">
-          <!-- <img src="./images/hotelroom.png" class="room-image" alt="room image"> -->
-          <!-- <button>Book Room</button>
-          <p>Date of Stay</p>
-          <p>Room Number</p>
-          <p>Cost per Night</p> -->
+  <div class="interface-main">
+    <main>
+      <nav>
+        <form class="calendar">
+          <button id="bookingsButton">Your Bookings</button>
+          <br>
+          <label for="calDate">Select a Booking Date</label>
+          <br>
+          <input id="calDate" type="date" min="" value=""  name="date-entry" required>
+          <label for="roomType">Select a Room Type</label>
+          <br>
+          <select type="dropdown" name="roomType" id="roomType">
+            <option disabled hidden selected value="">Choose a Room Type</option>
+            <option value="single room">Single Room</option>
+            <option value="junior suite">Junior Suite</option>
+            <option value="suite">Suite</option>
+            <option value="residential suite">Residential Suite</option>
+          </select>
+          <br>
+          <input type="submit" id="submitButton"></input>
+        </form>
+      </nav>
+      <section class="content">
+        <section class="login-container">  
         </section>
-        <section class="room-card-to-view">
-          <!-- <img src="./images/hotelroom.png" class="room-image" alt="room image">
-          <p>Date of Stay</p>
-          <p>Room Number</p>
-          <p>Cost per Night</p>
-          <button id="bookItButton">Book this room!</button> -->
+        <section class="room-container">
+          <section class="room-card-to-book">
+            <!-- <img src="./images/hotelroom.png" class="room-image" alt="room image"> -->
+            <!-- <button>Book Room</button>
+            <p>Date of Stay</p>
+            <p>Room Number</p>
+            <p>Cost per Night</p> -->
+          </section>
+          <section class="room-card-to-view">
+            <!-- <img src="./images/hotelroom.png" class="room-image" alt="room image">
+            <p>Date of Stay</p>
+            <p>Room Number</p>
+            <p>Cost per Night</p>
+            <button id="bookItButton">Book this room!</button> -->
+          </section>
         </section>
-      </section>
-      <section class="manager-view hidden">
+        <section class="manager-view hidden">
 
+        </section>
       </section>
-    </section>
-  </main>
+    </main>
+  </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
