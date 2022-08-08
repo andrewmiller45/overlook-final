@@ -59,6 +59,7 @@ nav{
 
 .room-card-to-book, .room-card-to-view {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   text-align: center;
 }
@@ -84,12 +85,12 @@ img{
   -1px -1px 0 #000;
 
   border-radius: 2%;
-  width: 25%;
+  width: 20%;
   padding-top: 1%;
   padding-bottom: 1%;
   background-color: #915f68;
   border: 2px solid black;
-  margin: 5px;
+  margin: 15px;
 }
 
 button {
@@ -103,6 +104,23 @@ button {
 }
 
 button:hover {
+  background-color: #b03c47;
+  box-shadow: 0 1px 5px rgba( 0, 0, 0 );
+  color: white;
+  cursor: pointer;
+}
+
+#submitButton {
+  align-self: center;
+  background-color: rgba( 211, 211, 211, 0.75 );
+  border: 1px ridge rgba( 0, 0, 0, 0.4 );
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba( 0, 0, 0 );
+  color: rgba( 0, 0, 0, 0.9 );
+  margin-top: 1%;
+}
+
+#submitButton:hover {
   background-color: #b03c47;
   box-shadow: 0 1px 5px rgba( 0, 0, 0 );
   color: white;
