@@ -30,6 +30,7 @@ let submitButton = document.querySelector('#submitButton')
 let calendarValues = document.getElementById('calDate')
 let viewYourBookingsButton = document.querySelector('#bookingsButton')
 let roomToBookContainer = document.querySelector('.room-card-to-book')
+let roomType = document.querySelector('#roomType')
 
 // e listeners 
 window.addEventListener('load', loadData)
@@ -37,8 +38,11 @@ submitButton.addEventListener('click', displayAvailableRooms)
 viewYourBookingsButton.addEventListener('click', displayUsersBookings)
 roomToBookContainer.addEventListener('click', (e) => {
     if(e.target.classList == 'book-room'){
-        return submitPostData(e)
-    }
+        getFormDataForPost(e)
+        submitPostData(e)
+        customerClass.findBookings(getData('bookings'))
+        displayUsersBookings() 
+    }    
 })
 
 
@@ -48,7 +52,8 @@ function loadData(  ) {
         listOfCustomers = data[0].customers
         listOfRooms = data[1].rooms
         listOfBookings = data[2].bookings
-        customerClass = new Customer(listOfCustomers[ Math.floor( Math.random( ) * listOfCustomers.length ) ])
+        customerClass = new Customer(listOfCustomers[0])
+        // customerClass = new Customer(listOfCustomers[ Math.floor( Math.random( ) * listOfCustomers.length ) ])
         console.log(listOfBookings);
         roomClass = new Rooms(listOfRooms)
         customerClass.findBookings(listOfBookings)
@@ -56,7 +61,7 @@ function loadData(  ) {
         customerClass.findSpendHistory()
         displayUsersBookings()
         getCurrentDate()
-        console.log(currentDate);
+        console.log(customerClass);
     })
 }
 
@@ -80,10 +85,10 @@ function displayAvailableRooms(e){
     hide(bookingsViewContainer)
     show(viewAvailableRoomsContainer)
     let reformattedDate = dayjs(calendarValues.value).format("YYYY/MM/DD")
-    let availableRooms = roomClass.filterForAvailability(listOfBookings, reformattedDate) 
+    let availableRooms = roomClass.filterForAvailability(listOfBookings, reformattedDate, roomType.value) 
+    console.log(availableRooms);
         viewAvailableRoomsContainer.innerHTML = ""
         availableRooms.map(availableRoom =>  {
-            console.log(availableRoom);
             return viewAvailableRoomsContainer.innerHTML +=         
             `<section class="room-card-to-book">
                 <img src="./images/hotelroom.png" class="room-image" alt="room image" >
@@ -129,6 +134,6 @@ function submitPostData(e) {
     Promise.all([postTheData, fetchPromise])
         .then( response => {
             console.log('success');
-            booking = new Booking(response[response.length -1])
+            booking = new Booking(response[response.length - 1])
         })
-}
+    }
