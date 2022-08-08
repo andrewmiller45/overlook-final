@@ -2,7 +2,6 @@ class Rooms {
     constructor(roomData) {
         this.rooms = roomData
         this.roomType
-        this.bedType
     }
 
     filterForAvailability (bookingData, date, roomType) {

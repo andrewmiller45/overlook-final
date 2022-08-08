@@ -12,18 +12,20 @@
   </header>
   <main>
     <nav>
-      <button id="bookingsButton">Your Bookings</button>
-      <label for="calDate">Select a Booking Date</label>
-      <input id="calDate" type="date" required>
-      <label for="roomType">Select a Room Type</label>
-      <select type="dropdown" name="roomType" id="roomType">
-        <option disabled hidden selected>Choose a Room Type</option>
-        <option value="single room">Single Room</option>
-        <option value="junior suite">Junior Suite</option>
-        <option value="suite">Suite</option>
-        <option value="residential suite">Residential Suite</option>
-      </select>
-      <input type="submit" id="submitButton">Search for Available Rooms</input>
+      <form class="calendar">
+        <button id="bookingsButton">Your Bookings</button>
+        <label for="calDate">Select a Booking Date</label>
+        <input id="calDate" type="date" min="" value=""  name="date-entry" required>
+        <label for="roomType">Select a Room Type</label>
+        <select type="dropdown" name="roomType" id="roomType">
+          <option disabled hidden selected>Choose a Room Type</option>
+          <option value="single room">Single Room</option>
+          <option value="junior suite">Junior Suite</option>
+          <option value="suite">Suite</option>
+          <option value="residential suite">Residential Suite</option>
+        </select>
+        <input type="submit" id="submitButton">Search for Available Rooms</input>
+      </form>
     </nav>
     <section class="content">
       <section class="login-container">  
