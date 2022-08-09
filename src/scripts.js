@@ -14,8 +14,8 @@ dayjs().format()
 import './images/hotelroom.png'
 
 // globals
-let listOfBookings
 let booking
+let listOfBookings
 let listOfCustomers
 let listOfRooms
 let customerClass
@@ -62,6 +62,7 @@ function loadData() {
 }
 
 function displayUsersBookings(e) {
+    e.preventDefault()
     hide(viewAvailableRoomsContainer)
     hide(loginForm)
     show(bookingsViewContainer)
@@ -156,9 +157,9 @@ function checkUserName(e) {
             customerClass.findBookings(listOfBookings)
             customerClass.updateCostPerNight(listOfRooms)
             customerClass.findSpendHistory()
-            displayUsersBookings()
             hide(loginContainer)
             show(mainInterface)
+            displayUsersBookings(e)
         })
         .catch(error => console.log(error))
     } else {
@@ -179,4 +180,10 @@ function checkValidCustomer( userName ) {
 
 function findCustomer(listOfCustomers) {
     return new Customer(listOfCustomers)
+}
+
+function populatePageDataOnLoad(e){
+    hide(loginContainer)
+    show(mainInterface)
+    displayUsersBookings(e)
 }
