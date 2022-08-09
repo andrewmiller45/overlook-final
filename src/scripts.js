@@ -37,9 +37,8 @@ let loginContainer = document.querySelector('#loginContainer')
 let mainInterface = document.querySelector('.interface-main')
 
 // e listeners 
-window.addEventListener('load', loadData)
 submitButton.addEventListener('click', displayAvailableRooms)
-viewYourBookingsButton.addEventListener('click', displayUsersBookings)
+viewYourBookingsButton.addEventListener('click', showBookingsContainer)
 loginForm.addEventListener('submit', checkUserName)
 roomToBookContainer.addEventListener('click', (e) => {
     if(e.target.classList == 'book-room'){
@@ -51,22 +50,30 @@ roomToBookContainer.addEventListener('click', (e) => {
 })
 
 //functions
-function loadData() {
+function loadData(e) {
     Promise.all([getData('customers'), getData('rooms'), getData('bookings')]).then(data => {
         listOfCustomers = data[0].customers
         listOfRooms = data[1].rooms
         listOfBookings = data[2].bookings
         roomClass = new Rooms(listOfRooms)
         getCurrentDate()
+        displayUsersBookings(e)
     })
 }
 
-function displayUsersBookings(e) {
-    e.preventDefault()
+function showBookingsContainer(e){
     hide(viewAvailableRoomsContainer)
     hide(loginForm)
     show(bookingsViewContainer)
+    loadData(e)
+    e.preventDefault()
+}
+
+function displayUsersBookings(e) { 
     bookingsViewContainer.innerHTML = ""
+    customerClass.findBookings(listOfBookings)
+    customerClass.updateCostPerNight(listOfRooms)
+    customerClass.findSpendHistory()
     customerClass.bookings.map((booking => {
         return bookingsViewContainer.innerHTML += 
         `<section class="individuals-booked-room-card">
@@ -132,7 +139,7 @@ function submitPostData(e) {
             booking = new Booking(response[response.length - 1])
         })
         .then(
-            getCurrentDate()
+            getCurrentDate(),         
         )
     }
 
@@ -154,9 +161,9 @@ function checkUserName(e) {
             findCustomer(response)
             loadData(response)
             customerClass = new Customer(response)
-            customerClass.findBookings(listOfBookings)
-            customerClass.updateCostPerNight(listOfRooms)
-            customerClass.findSpendHistory()
+            // customerClass.findBookings(listOfBookings)
+            // customerClass.updateCostPerNight(listOfRooms)
+            // customerClass.findSpendHistory()
             hide(loginContainer)
             show(mainInterface)
             displayUsersBookings(e)
@@ -180,10 +187,4 @@ function checkValidCustomer( userName ) {
 
 function findCustomer(listOfCustomers) {
     return new Customer(listOfCustomers)
-}
-
-function populatePageDataOnLoad(e){
-    hide(loginContainer)
-    show(mainInterface)
-    displayUsersBookings(e)
 }
