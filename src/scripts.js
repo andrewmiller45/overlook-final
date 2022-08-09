@@ -31,6 +31,8 @@ let calendarValues = document.getElementById('calDate')
 let viewYourBookingsButton = document.querySelector('#bookingsButton')
 let roomToBookContainer = document.querySelector('.room-card-to-book')
 let roomType = document.querySelector('#roomType')
+let header = document.querySelector('header')
+let navBar = document.querySelector('nav')
 
 // e listeners 
 window.addEventListener('load', loadData)
@@ -45,7 +47,6 @@ roomToBookContainer.addEventListener('click', (e) => {
         console.log(customerClass);
     }    
 })
-
 
 //functions
 function loadData(  ) {
@@ -134,6 +135,9 @@ function submitPostData(e) {
             console.log('success');
             booking = new Booking(response[response.length - 1])
         })
+        .then(
+            getCurrentDate()
+        )
     }
 
 function hide(element){
@@ -143,3 +147,9 @@ function hide(element){
 function show(element){
     element.classList.remove('hidden')
 }
+
+// function toggleLoginPage(){
+//     hide()
+//     hide()
+//     hide()
+// }
