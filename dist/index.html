@@ -10,7 +10,17 @@
   <header>
     Del Rio's Regal Motel
   </header>
-  <div class="interface-main">
+  <div id="loginContainer">
+    <h1>Welcome back!  Please login to see your bookings...</h1>
+    <form id="loginValues">
+      <label for="userName" class="user-name-label hidden">Username</label>
+      <input type="text" name="username" id="userNameField" class="login-form-field" placeholder="customer50" required>
+      <label for="password" class="password-label hidden">Password</label>
+      <input type="password" name="password" id="passwordField" class="login-form-field" value="overlook2021" required>
+      <input type="submit" value="Get A Room!" id="loginFormSubmit">
+    </form>
+  </div>
+  <div class="interface-main hidden">
     <main>
       <nav>
         <form class="calendar">
@@ -29,7 +39,7 @@
             <option value="residential suite">Residential Suite</option>
           </select>
           <br>
-          <input type="submit" id="submitButton"></input>
+          <input type="submit" id="displayRooms"></input>
         </form>
       </nav>
       <section class="content">

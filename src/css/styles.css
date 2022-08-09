@@ -16,6 +16,10 @@ main{
   background-color: #f9f3f3;
 }
 
+body{
+  width: 100%;
+}
+
 header{
   margin: 0;
   text-align: center;
@@ -111,7 +115,7 @@ button:hover {
   cursor: pointer;
 }
 
-#submitButton {
+#submitButton, #loginFormSubmit {
   align-self: center;
   background-color: rgba( 211, 211, 211, 0.75 );
   border: 1px ridge rgba( 0, 0, 0, 0.4 );
@@ -121,9 +125,10 @@ button:hover {
   margin-top: 1%;
 }
 
-#submitButton:hover {
+#submitButton:hover, #loginFormSubmit:hover{
   background-color: #b03c47;
   box-shadow: 0 1px 5px rgba( 0, 0, 0 );
   color: white;
   cursor: pointer;
 }
+

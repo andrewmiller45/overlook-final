@@ -22,53 +22,48 @@ let customerClass
 let roomClass
 let currentDate
 let dataToPost
+let customerLogin
 
 //q selectors 
 let bookingsViewContainer = document.querySelector('.room-card-to-view')
 let viewAvailableRoomsContainer = document.querySelector('.room-card-to-book')
-let submitButton = document.querySelector('#submitButton')
+let submitButton = document.querySelector('#displayRooms')
 let calendarValues = document.getElementById('calDate')
 let viewYourBookingsButton = document.querySelector('#bookingsButton')
 let roomToBookContainer = document.querySelector('.room-card-to-book')
 let roomType = document.querySelector('#roomType')
-let header = document.querySelector('header')
-let navBar = document.querySelector('nav')
+let loginForm = document.querySelector('#loginValues')
+let loginContainer = document.querySelector('#loginContainer')
+let mainInterface = document.querySelector('.interface-main')
 
 // e listeners 
 window.addEventListener('load', loadData)
 submitButton.addEventListener('click', displayAvailableRooms)
 viewYourBookingsButton.addEventListener('click', displayUsersBookings)
+loginForm.addEventListener('submit', checkUserName)
 roomToBookContainer.addEventListener('click', (e) => {
     if(e.target.classList == 'book-room'){
         e.target.closest('section').remove()
         window.alert(`Thank you! Your booking has been completed.`)
         getFormDataForPost(e)
         submitPostData(e)
-        console.log(customerClass);
     }    
 })
 
 //functions
-function loadData(  ) {
+function loadData() {
     Promise.all([getData('customers'), getData('rooms'), getData('bookings')]).then(data => {
         listOfCustomers = data[0].customers
         listOfRooms = data[1].rooms
         listOfBookings = data[2].bookings
-        customerClass = new Customer(listOfCustomers[2])
-        // customerClass = new Customer(listOfCustomers[ Math.floor( Math.random( ) * listOfCustomers.length ) ])
-        console.log(listOfBookings);
         roomClass = new Rooms(listOfRooms)
-        customerClass.findBookings(listOfBookings)
-        customerClass.updateCostPerNight(listOfRooms)
-        customerClass.findSpendHistory()
-        displayUsersBookings()
         getCurrentDate()
-        console.log(customerClass);
     })
 }
 
-function displayUsersBookings () {
+function displayUsersBookings(e) {
     hide(viewAvailableRoomsContainer)
+    hide(loginForm)
     show(bookingsViewContainer)
     bookingsViewContainer.innerHTML = ""
     customerClass.bookings.map((booking => {
@@ -148,8 +143,40 @@ function show(element){
     element.classList.remove('hidden')
 }
 
-// function toggleLoginPage(){
-//     hide()
-//     hide()
-//     hide()
-// }
+function checkUserName(e) {
+    e.preventDefault()
+    customerLogin = new FormData(e.target)
+    if (checkValidCustomer(customerLogin.get('username')) && customerLogin.get('password') === 'overlook2021') {
+        fetch(`http://localhost:3001/api/v1/customers/${checkValidCustomer(customerLogin.get('username'))}`)
+        .then(response => response.json())
+        .then(response => {
+            findCustomer(response)
+            loadData(response)
+            customerClass = new Customer(response)
+            customerClass.findBookings(listOfBookings)
+            customerClass.updateCostPerNight(listOfRooms)
+            customerClass.findSpendHistory()
+            displayUsersBookings()
+            hide(loginContainer)
+            show(mainInterface)
+        })
+        .catch(error => console.log(error))
+    } else {
+        window.alert('Invalid Username, or Password')
+        e.target.reset()
+    }
+}
+
+function checkValidCustomer( userName ) {
+    let customer = userName.substring(0, 8)
+    let customerId = userName.substring(8)
+        if (customer === 'customer' && parseInt(customerId) < 51) {
+            return customerId
+        } else {
+            return false
+        };
+}
+
+function findCustomer(listOfCustomers) {
+    return new Customer(listOfCustomers)
+}
