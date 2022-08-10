@@ -1,99 +1,77 @@
-# Webpack Starter Kit
+# Hotel Overlook!
 
-## Clone This Repo
+### Table of contents
+* [Setting Up](#setup)
+* [How To Use](#how)
+* [Under The Hood](#under) 
+* [Challenges](#challenges)
+* [Reflections](#reflections)
+* [Future Iterations](#future)
+* [Technologies Used](#tech)
+* [Contributor](#contributor)
+​
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+<br>
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
 
-Now try to commit something (just add a line in the README) and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+### Setting Up: 
+* On the top right corner of this page, click the **Fork** button to fork this repo.
+* Clone down the forked repo by clicking the green **Code** button, and then copying the link under **SSH**.
+* In your terminal, type in `git clone` and then paste the copied link.
+* Once you have cloned the repo, change into the directory and install the project dependencies, by running `npm install`.
+* Run `npm start` in the terminal, and copy the URL link (`http://localhost:8080/`) to see the HTML page 
+* Clone the API as well, located here: https://github.com/turingschool-examples/overlook-api
+* To stop running the server, use Control + C in the terminal. (Closing the terminal without stopping the server first could allow the server to continue to run in the background and cause problems.)
+* And now you're ready to get cookin'!
 
-## Setup
+<br>
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
+### How To Use: <a name="how"></a>
 
-Then install the library dependencies. Run:
+* On page load, you will be prompted to login. You can login with the username: customer50 (any number between 1-50 will work).  The password is overlook2021.  
+* Once on the home screen, you will see a list of the user's current bookings, their name, and their total spend at Del Rio's Regal Motel.
+* You can select a date and room type for booking, and it will filter out the available rooms to the user interacting with the page.  Feel free to play around toggling back and forth between bookings and available rooms to see it update.
 
-```bash
-npm install
-```
+<br>
+<br>
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+### Challenges: <a name="challenges"></a> <br>
 
-## Where to Add Your Code
+I had the most difficulty navigating the POST/FETCH requests and making sure that my data going out and in was consistent with the local server.  There was a lot of console logging needed to properly get that functionality working.
 
-### JavaScript
+<br>
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+### Reflections: <a name="reflections"></a> <br>
 
-**Create all of your feature code files in the `src` directory.**
+* I am feeling solid with my iteration methods and using them to manipulate to the DOM.  The data in this project was much easier to work with than the data in our previous group project, which made learning goals much easier to attain.  I am happy that the class to class interaction feels like a very easy concept compared to where I was in Mod1.  Overall feeling very happy and excited to move into deeper knowledge of my CSS skills/React/etc. moving forward.
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+<br>
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+### Future Iterations: <a name="future"></a> <br>
 
-### HTML
+* Clean up the CSS.  CSS is easily the weakest aspect of my dev skills.
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+* Adding additional filter functionality.
 
-### Images
+* Allow users to create their own usernames and passwords.
+ 
+* Build out the manager class to begin learning about DELETE requests with APIs.
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+<br>
 
-## How to View Your Code in Action
+### Technologies used:<br><a name="tech"></a>
+JavaScript<br>
+HTML<br>
+CSS<br>
+Fetch API<br>
+Webpack<br>
+Mocha<br>
+Chai<br>
 
-In the terminal, run:
+<br>
 
-```bash
-npm start
-```
+### Contributor: <a name="contributor"></a> <br>
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
+<br> 
 
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+Andrew Miller: [LinkedIn](https://www.linkedin.com/in/andrew-miller-0393b448/) | [GitHub](https://github.com/andrewmiller45)
