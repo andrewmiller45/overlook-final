@@ -35,6 +35,9 @@ let roomType = document.querySelector('#roomType')
 let loginForm = document.querySelector('#loginValues')
 let loginContainer = document.querySelector('#loginContainer')
 let mainInterface = document.querySelector('.interface-main')
+let userWelcomeText = document.querySelector('.user-name-welcome')
+let userSpendText = document.querySelector('.user-spend')
+let userEngagement = document.querySelector('.user-info')
 
 // e listeners 
 submitButton.addEventListener('click', displayAvailableRooms)
@@ -70,10 +73,14 @@ function showBookingsContainer(e){
 }
 
 function displayUsersBookings(e) { 
+    show(userEngagement)
     bookingsViewContainer.innerHTML = ""
     customerClass.findBookings(listOfBookings)
     customerClass.updateCostPerNight(listOfRooms)
     customerClass.findSpendHistory()
+    userWelcomeText.innerText = `Welcome back, ${customerClass.name}!`
+    userSpendText.innerText = `We value your business!  As a rewards member, you have spent $${(customerClass.findSpendHistory()).toFixed(2)} with us this year.`
+
     customerClass.bookings.map((booking => {
         return bookingsViewContainer.innerHTML += 
         `<section class="individuals-booked-room-card">
