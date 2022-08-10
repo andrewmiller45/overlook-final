@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +19,13 @@
       <label for="userName" class="user-name-label hidden">Username</label>
       <input type="text" name="username" id="userNameField" class="login-form-field" placeholder="customer50" required>
       <label for="password" class="password-label hidden">Password</label>
-      <input type="password" name="password" id="passwordField" class="login-form-field" value="overlook2021" required>
+      <input aria-label="password field" type="password" name="password" id="passwordField" class="login-form-field" value="overlook2021" required>
       <input type="submit" value="Get A Room!" id="loginFormSubmit">
     </form>
+  </div>
+  <div class="user-info hidden" >
+    <h1></h1>
+    <h2></h2>
   </div>
   <div class="interface-main hidden">
     <main>
@@ -43,22 +50,12 @@
         </form>
       </nav>
       <section class="content">
-        <section class="login-container">  
-        </section>
         <section class="room-container">
           <section class="room-card-to-book">
-            <!-- <img src="./images/hotelroom.png" class="room-image" alt="room image"> -->
-            <!-- <button>Book Room</button>
-            <p>Date of Stay</p>
-            <p>Room Number</p>
-            <p>Cost per Night</p> -->
+
           </section>
           <section class="room-card-to-view">
-            <!-- <img src="./images/hotelroom.png" class="room-image" alt="room image">
-            <p>Date of Stay</p>
-            <p>Room Number</p>
-            <p>Cost per Night</p>
-            <button id="bookItButton">Book this room!</button> -->
+
           </section>
         </section>
         <section class="manager-view hidden">
